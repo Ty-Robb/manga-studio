@@ -9,3 +9,10 @@ Drafts are saved in browser local storage. Export a project JSON file to transfe
 `dist/server/index.js` is a dependency-free Cloudflare Worker with an embedded client. Its `BUCKET` R2 binding stores published editions. Site access is private to the owner by default. GitHub stores application code, not user drafts or published manga files.
 
 Run `node verify.cjs` to check the sketch and reference workflows. This is a script-level verification harness, not a browser test.
+
+## GitHub Pages
+
+Run node build-pages.cjs to create docs/index.html. The Pages workflow validates, builds, and deploys on pushes to main once Pages is enabled.
+
+On GitHub Pages, editions use IndexedDB on the current device. Export reader downloads a standalone HTML book you can share. Drafts and editions from the previous site do not automatically transfer: export and reopen project files. GitHub Pages does not provide the Worker/R2 shared library backend.
+
